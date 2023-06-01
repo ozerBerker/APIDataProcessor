@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace APIDataProcessor
 {
@@ -32,7 +32,6 @@ namespace APIDataProcessor
             Console.WriteLine("|Tarih\t\t|Toplam İşlem Miktarı (MWh)\t|Toplam İşlem Tutarı (TL)\t|Ağırlıklı Ortalama Fiyat (TL/MWh)");
             foreach (var item in sumOfPricesByUniqueId)
             {
-                //Console.Write(item.conract+"\t");
                 Console.Write(ConvertConractToDate(item.conract) + "\t");
                 Console.Write(CalcTotalTransactionAmount(item.TotalQuantity) + "\t\t\t\tTl\t");
                 Console.Write(CalcTotalTransactionSum(item.TotalPrice, item.TotalQuantity) + "\t\t\t");
@@ -114,7 +113,6 @@ namespace APIDataProcessor
         {
             foreach (IntraDayTradeHistory trade in intraDayTradeHistoryList)
             {
-                // Access trade properties
                 Console.WriteLine("id: " + trade.id);
                 Console.WriteLine("date: " + trade.date);
                 Console.WriteLine("conract: " + trade.conract);
@@ -128,7 +126,6 @@ namespace APIDataProcessor
         {
             for (int i = 0; i < j; i++)
             {
-                // Access trade properties
                 Console.WriteLine("id: " + intraDayTradeHistoryList[i].id);
                 Console.WriteLine("date: " + intraDayTradeHistoryList[i].date);
                 Console.WriteLine("conract: " + intraDayTradeHistoryList[i].conract);
